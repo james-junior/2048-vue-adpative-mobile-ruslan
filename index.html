@@ -280,6 +280,12 @@
       .first-score {
         margin-right: 5px;
       }
+
+      .title {
+        color: white;
+        text-shadow: 1px 0 1px black, 0 1px 1px black, -1px 0 1px black,
+          0 -1px 1px black;
+      }
     </style>
 
     <script
@@ -318,7 +324,7 @@
             v-bind:class="{'game-aim-reached':gameAimReached}"
             :style="gameAimStyle"
           >
-            <p>ОХОТА ЯЩЕРОВ НА СЛАВЯН</p>
+            <p class="title">ОХОТА ЯЩЕРОВ НА СЛАВЯН</p>
           </div>
           <div class="scores" :style="scoreStyle">
             <div class="score flex first-score">
@@ -343,7 +349,7 @@
           <button
             v-if="!gameStarted"
             @click="startGame()"
-            class="button"
+            class="button title"
             :style="buttonStyle"
             key="start"
           >
@@ -352,7 +358,7 @@
           <button
             v-else
             @click="gameStarted=false"
-            class="button"
+            class="button title"
             :style="buttonStyle"
             key="end"
           >
