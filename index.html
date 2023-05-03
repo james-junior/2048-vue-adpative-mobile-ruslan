@@ -31,6 +31,8 @@
         font-family: "Ruslan Display", cursive;
         height: 100%;
         width: 100%;
+        overflow-x: hidden;
+        overflow-y: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -185,6 +187,7 @@
       .main-container .game-container .overlay {
         width: 100%;
         height: 100%;
+        border-radius: 1.75%;
         position: absolute;
         z-index: 2;
         display: flex;
@@ -273,6 +276,10 @@
         flex-direction: column;
         justify-content: space-between;
       }
+
+      .first-score {
+        margin-right: 5px;
+      }
     </style>
 
     <script
@@ -303,7 +310,7 @@
 
   <body>
     <div id="app" style="visibility: hidden">
-      <div class="main-container appearing" :style="mainContainerStyle">
+      <div class="main-container appearing">
         <div class="score-container" :style="scoreContainerStyle">
           <div
             ref="gameAim"
@@ -314,7 +321,7 @@
             <p>ОХОТА ЯЩЕРОВ НА СЛАВЯН</p>
           </div>
           <div class="scores" :style="scoreStyle">
-            <div class="score flex">
+            <div class="score flex first-score">
               <div class="label">ОЧКИ СПОРТИВНЫЕ</div>
               <div class="label">
                 {{score}}
@@ -902,11 +909,6 @@
             return {
               width: this.boardSizePx + "px",
               height: this.boardSizePx + "px",
-            };
-          },
-          mainContainerStyle: function () {
-            return {
-              width: this.boardSizePx + "px",
             };
           },
           gameControlsStyle: function () {
