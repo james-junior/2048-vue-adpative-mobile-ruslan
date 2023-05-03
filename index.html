@@ -346,6 +346,7 @@
             <div class="overlay game-over appearing" :style="gameOverStyle">
               <p>ПОБЕДА ЯЩЕРОВ</p>
             </div>
+            <audio src="./audio/voxworker-voice-file.mp3"></audio>
           </div>
           <game-2048
             ref="game"
@@ -987,12 +988,21 @@
           onGameStarted: function () {
             this.gameStarted = true;
             this.gameEnded = false;
+
+            const start_voice = new Audio(
+              "./audio/ПОДВИГИ ДРЕВНИХ РУСОВ В ВОЙНЕ С ЯЩЕРАМИ 2.mp3"
+            );
+            start_voice.play();
           },
           onGameEnded: function () {
             this.gameStarted = false;
             this.gameEnded = true;
+
             this.gameAimReached = false;
             this.persistState();
+
+            const end_voice = new Audio("./audio/voxworker-voice-file.mp3");
+            end_voice.play();
           },
           onGameScore: function (args) {
             var s = { score: this.score };
